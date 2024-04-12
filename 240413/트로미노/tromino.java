@@ -57,7 +57,7 @@ public class Main {
         for(int i=0;i<2;i++) {
             int nr = r + first_dr[i];
             int nc = c + first_dc[i];
-            if(nr < 0 || nr > N-1 || nc < 0 || nc > N-1) {
+            if(nr < 0 || nr > N-1 || nc < 0 || nc > M-1) {
                 return 0;
             }
             sum += map[nr][nc];
@@ -70,7 +70,7 @@ public class Main {
         for(int i=0;i<2;i++) {
             int nr = r + first_dr2[i];
             int nc = c + first_dc2[i];
-            if(nr < 0 || nr > N-1 || nc < 0 || nc > N-1)
+            if(nr < 0 || nr > N-1 || nc < 0 || nc > M-1)
                 return 0;
             sum += map[nr][nc];
         }
@@ -82,7 +82,7 @@ public class Main {
         for(int i=0;i<2;i++) {
             int nr = r + first_dr3[i];
             int nc = c + first_dc3[i];
-            if(nr < 0 || nr > N-1 || nc < 0 || nc > N-1)
+            if(nr < 0 || nr > N-1 || nc < 0 || nc > M-1)
                 return 0;
             sum += map[nr][nc];
         }
@@ -94,7 +94,7 @@ public class Main {
         for(int i=0;i<2;i++) {
             int nr = r + first_dr4[i];
             int nc = c + first_dc4[i];
-            if(nr < 0 || nr > N-1 || nc < 0 || nc > N-1)
+            if(nr < 0 || nr > N-1 || nc < 0 || nc > M-1)
                 return 0;
             sum += map[nr][nc];
         }
@@ -106,7 +106,7 @@ public class Main {
         for(int i=0;i<2;i++) {
             int nr = r + second_dr[i];
             int nc = c + second_dc[i];
-            if(nr < 0 || nr > N-1 || nc < 0 || nc > N-1)
+            if(nr < 0 || nr > N-1 || nc < 0 || nc > M-1)
                 return 0;
             sum += map[nr][nc];
         }
@@ -118,7 +118,7 @@ public class Main {
         for(int i=0;i<2;i++) {
             int nr = r + second_dr2[i];
             int nc = c + second_dc2[i];
-            if(nr < 0 || nr > N-1 || nc < 0 || nc > N-1)
+            if(nr < 0 || nr > N-1 || nc < 0 || nc > M-1)
                 return 0;
             sum += map[nr][nc];
         }
