@@ -22,6 +22,10 @@ public class Main {
             }
         }
 
+        if(N == 1&&M==1) {
+            System.out.println(2);
+            return;
+        }
         // 행복한 행 구하기
         for(int i = 0 ; i < N ; i++) {
             int tmp = 1;    // 연속한 수 갯수
