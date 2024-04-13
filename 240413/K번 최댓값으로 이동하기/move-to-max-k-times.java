@@ -44,6 +44,10 @@ public class Main {
         initR = Integer.parseInt(st.nextToken())-1;
         initC = Integer.parseInt(st.nextToken())-1;
 
+        if(N == 1) {
+            System.out.print(1 + " " + 1);
+            return;
+        }
         int time = 0;
         maxR = initR; maxC = initC;
         while(time < K) {
