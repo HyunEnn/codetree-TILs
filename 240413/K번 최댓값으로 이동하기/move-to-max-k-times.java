@@ -24,6 +24,7 @@ public class Main {
     static int initR, initC;
     static int maxR, maxC;
     static List<Point> list;
+    static int cnt;
     static StringTokenizer st;
 
     public static void main(String[] args) throws IOException {
@@ -54,6 +55,7 @@ public class Main {
             v = new boolean[N][N]; // bfs를 할 때마다, 매번 방문배열 초기화가 필요할 듯?
             list.removeAll(list);
             BFS(maxR, maxC);
+            if(list.size() == 0) break;
             // BFS를 통해 나온 값들 중에, list를 통해서 최대 우선순위를 추출
             // 추출된 우선순위로 time에 따라, 다시 BFS 탐색을 하던, 종료를 한다.
             // 탐색 종료 후에, maxR과 maxC를 출력한다.
@@ -87,6 +89,7 @@ public class Main {
         Q.offer(new Point(r, c));
         v[r][c] = true;
         int current = map[r][c]; // 현재 위치 값
+        cnt = 0;
 
         while(!Q.isEmpty()) {
             Point p = Q.poll();
@@ -101,6 +104,7 @@ public class Main {
                     list.add(new Point(nr, nc));
                 }
             }
+            cnt++;
         }
     }
 
