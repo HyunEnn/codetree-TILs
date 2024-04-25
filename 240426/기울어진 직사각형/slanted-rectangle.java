@@ -40,9 +40,10 @@ public class Main {
 
     public static void solve(int r, int c, int h, int w) {
         cnt = map[r][c];
+        v[r][c] = true;
         boolean flag = false;
         // 0, 2는 h와 비교하고 1, 3은 w와 비교한다.
-        while(loc < 3) {
+        while(loc < 4) {
             int ch = 0;
             if(loc == 0 || loc == 2) {
                 while(ch < h) {
@@ -60,8 +61,8 @@ public class Main {
                         cnt += map[nr][nc];
                         r = nr;
                         c = nc;
-                        ch++;
                     }
+                    ch++;
                 }
             } else {
                 while(ch < w) {
@@ -79,8 +80,8 @@ public class Main {
                         cnt += map[nr][nc];
                         r = nr;
                         c = nc;
-                        ch++;
                     }
+                    ch++;
                 }
             }
             loc++;
