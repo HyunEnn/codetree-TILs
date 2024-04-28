@@ -39,7 +39,7 @@ public class Main {
     }
 
     public static void solve(int r, int c, int h, int w) {
-        cnt = map[r][c];
+        cnt = 0;
         v[r][c] = true;
         boolean flag = false;
         // 0, 2는 h와 비교하고 1, 3은 w와 비교한다.
