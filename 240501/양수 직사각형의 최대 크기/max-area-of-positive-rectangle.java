@@ -14,7 +14,7 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         map = new int[N][M];
-        max_size = 0;
+        max_size = Integer.MIN_VALUE;
 
         for(int i=0;i<N;i++) {
             st = new StringTokenizer(br.readLine());
@@ -34,7 +34,10 @@ public class Main {
             }
         }
 
-        System.out.println(max_size);
+        if(max_size == Integer.MIN_VALUE)
+            System.out.println(-1);
+        else
+            System.out.println(max_size);
     }
 
     public static boolean isBoolRect(int r1, int c1, int r2, int c2) {
