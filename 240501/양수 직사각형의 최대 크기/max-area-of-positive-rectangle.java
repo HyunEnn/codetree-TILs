@@ -27,13 +27,25 @@ public class Main {
             for(int j=0;j<M;j++) {
                 for(int k=i;k<N;k++) {
                     for(int l=j;l<M;l++) {
-                        max_size = Math.max(max_size, findMaxRect(i, j, k, l));
+                        if(isBoolRect(i, j, k, l))
+                            max_size = Math.max(max_size, (k-i+1) * (l-j+1));
                     }
                 }
             }
         }
 
         System.out.println(max_size);
+    }
+
+    public static boolean isBoolRect(int r1, int c1, int r2, int c2) {
+
+        for(int i=r1;i<=r2;i++) {
+            for(int j=c1;j<=c2;j++) {
+                if(map[i][j] < 0)
+                    return false;
+            }
+        }
+        return true;
     }
 
     public static int findMaxRect(int r1, int c1, int r2, int c2) {
