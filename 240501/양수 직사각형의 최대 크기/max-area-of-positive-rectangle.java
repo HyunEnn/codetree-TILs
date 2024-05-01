@@ -14,7 +14,7 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         map = new int[N][M];
-        max_size = Integer.MIN_VALUE;
+        max_size = 0;
 
         for(int i=0;i<N;i++) {
             st = new StringTokenizer(br.readLine());
