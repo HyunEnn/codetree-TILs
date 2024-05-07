@@ -81,7 +81,8 @@ public class Main {
                 } else if(((startRow - i) % 2 == 0) && wind.equals("R")) {
                     right(i);
                 }
-            }
+            } else
+                break;
         }
 
         // 아래로 진행되는 전파
@@ -97,7 +98,8 @@ public class Main {
                 } else if(((i - startRow) % 2 == 0) && wind.equals("R")) {
                     right(i);
                 }
-            }
+            } else
+                break;
         }
     }
 
