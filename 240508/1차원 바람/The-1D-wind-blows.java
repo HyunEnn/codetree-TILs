@@ -37,17 +37,9 @@ public class Main {
             // L은 왼쪽에서 불어오는 바람, 오른쪽으로 밀어야 함
             // R은 오른쪽에서 불어오는 바람, 왼쪽으로 밀어야 함
             if(wind.equals("L")) {
-                int tmp = map[row][M-1];
-                for(int j=M-1;j>0;j--) {
-                    map[row][j] = map[row][j-1];
-                }
-                map[row][0] = tmp;
+                left(row);
             } else if(wind.equals("R")) {
-                int tmp = map[row][0];
-                for(int j=0;j<M-1;j++) {
-                    map[row][j] = map[row][j+1];
-                }
-                map[row][M-1] = tmp;
+                right(row);
             }
 
             spreadRotate(row, wind);
