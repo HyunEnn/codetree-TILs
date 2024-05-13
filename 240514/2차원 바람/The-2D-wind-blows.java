@@ -26,13 +26,19 @@ public class Main {
             }
         }
 
-        st = new StringTokenizer(br.readLine());
-        // 시작 좌표
-        r1 = Integer.parseInt(st.nextToken()) - 1;
-        c1 = Integer.parseInt(st.nextToken()) - 1;
-        // 마지막 좌표
-        r2 = Integer.parseInt(st.nextToken()) - 1;
-        c2 = Integer.parseInt(st.nextToken()) - 1;
+        if(Q != 0) {
+
+            st = new StringTokenizer(br.readLine());
+            // 시작 좌표
+            r1 = Integer.parseInt(st.nextToken()) - 1;
+            c1 = Integer.parseInt(st.nextToken()) - 1;
+            // 마지막 좌표
+            r2 = Integer.parseInt(st.nextToken()) - 1;
+            c2 = Integer.parseInt(st.nextToken()) - 1;
+        } else {
+            printMap();
+        }
+
 
         int st = 0;
         /**
