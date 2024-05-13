@@ -26,21 +26,12 @@ public class Main {
             }
         }
 
-        if(Q != 0) {
-
-            st = new StringTokenizer(br.readLine());
-            // 시작 좌표
-            r1 = Integer.parseInt(st.nextToken()) - 1;
-            c1 = Integer.parseInt(st.nextToken()) - 1;
-            // 마지막 좌표
-            r2 = Integer.parseInt(st.nextToken()) - 1;
-            c2 = Integer.parseInt(st.nextToken()) - 1;
-        } else {
+        if(Q == 0) {
             printMap();
+            return;
         }
 
-
-        int st = 0;
+        int start = 0;
         /**
          * Q 의 횟수 만큼 while 문이 반복되야 함.
          * 회전시키고 직사각형의 평균값 상하좌우와 자기자신을 더하고
@@ -48,8 +39,15 @@ public class Main {
          * left 로 보낼 때의 처리가 중요함. ( 값을 따로 저장해준다? )
          */
 
-        while(st < Q) {
+        while(start < Q) {
             // 한 바퀴 돌고
+            st = new StringTokenizer(br.readLine());
+            // 시작 좌표
+            r1 = Integer.parseInt(st.nextToken()) - 1;
+            c1 = Integer.parseInt(st.nextToken()) - 1;
+            // 마지막 좌표
+            r2 = Integer.parseInt(st.nextToken()) - 1;
+            c2 = Integer.parseInt(st.nextToken()) - 1;
             right();
             down();
             left();
@@ -57,9 +55,9 @@ public class Main {
             // 본인 포함 사방 탐색 진행 하고 평균값 적용
             changeAvg();
             moveMap();
-            printMap();
-            st++;
+            start++;
         }
+        printMap();
     }
 
     public static void changeAvg() {
