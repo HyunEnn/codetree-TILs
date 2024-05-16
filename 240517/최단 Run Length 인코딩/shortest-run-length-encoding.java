@@ -20,6 +20,10 @@ public class Main {
 
         c = A.toCharArray();
 
+        // 초기 값 체크 
+        min = Math.min(min, checkValue());
+
+        // 그 다음 shift를 진행하면서 값을 체크
         for(int i=0;i < c.length - 1;i++) {
 
             move();
