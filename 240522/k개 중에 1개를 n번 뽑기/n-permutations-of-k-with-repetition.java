@@ -6,25 +6,32 @@ import java.util.StringTokenizer;
 public class Main {
     static int K, N;
     static StringTokenizer st;
+    static int[] sel;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         st = new StringTokenizer(br.readLine());
         K = Integer.parseInt(st.nextToken());
         N = Integer.parseInt(st.nextToken());
-        solve(1, N);
+        sel = new int[N];
+        solve(0);
     }
 
-    public static void solve(int a, int b) {
+    public static void solve(int cnt) {
 
         // basis
-        if(a > N)
+        if(cnt == N) {
+            for(int i=0;i<N;i++) {
+                System.out.print(sel[i] + " ");
+            }
+            System.out.println();
             return;
+        }
+            
 
         // inductive
         for(int i=1;i<=K;i++) {
-            System.out.println(a + " " + i);
+            sel[cnt] = i;
+            solve(cnt + 1); 
         }
-
-        solve(a + 1, b);
     }
 }
