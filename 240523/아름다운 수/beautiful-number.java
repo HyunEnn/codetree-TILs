@@ -25,7 +25,7 @@ public class Main {
         }
 
         // inductive
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 4; i++) {
             list.add(i);
             recursive(x + 1);
             list.remove(list.size() - 1);
