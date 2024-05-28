@@ -4,7 +4,7 @@ import java.util.*;
 public class Main {
     static int N;
     static int max = Integer.MIN_VALUE;
-    static boolean[] line = new boolean[1000];
+    static boolean[] line = new boolean[1001];
     static StringTokenizer st;
     static List<Point> list;
     static class Point {
