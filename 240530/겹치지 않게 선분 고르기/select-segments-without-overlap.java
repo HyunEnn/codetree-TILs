@@ -30,7 +30,7 @@ public class Main {
         }
         for(int i=0;i<pair.size();i++) {
             v = new boolean[1001];
-            recursive(0, 0);
+            recursive(i, 0);
         }
         System.out.println(max);
     }
