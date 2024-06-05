@@ -25,11 +25,13 @@ public class Main {
                     if (i >= arr.length)
                         break;
                     int cnt = 1;
-                    for (int j = i + 1; j < arr.length; j++) {
-                        if (arr[j] != arr[i]) {
-                            break;
+                    if(i != arr.length - 1) {
+                        for (int j = i + 1; j < arr.length; j++) {
+                            if (arr[j] != arr[i]) {
+                                break;
+                            }
+                            cnt++;
                         }
-                        cnt++;
                     }
                     if (cnt >= M) {
                         changeBomb(i, cnt); // 여기서 터질 값들을 전부 -1로 변경
@@ -55,13 +57,15 @@ public class Main {
 
     public static boolean checkBomb() {
 
-        for (int i = 0; i < arr.length - 1; i++) {
+        for (int i = 0; i < arr.length; i++) {
             int cnt = 1;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] != arr[j]) {
-                    break;
+            if(i != arr.length - 1) {
+                for (int j = i + 1; j < arr.length; j++) {
+                    if (arr[i] != arr[j]) {
+                        break;
+                    }
+                    cnt++;
                 }
-                cnt++;
             }
             if (cnt >= M)
                 return true;
