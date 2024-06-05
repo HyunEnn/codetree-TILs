@@ -22,7 +22,7 @@ public class Main {
         while (true) {
             if (checkBomb()) {
                 while (true) {
-                    if (i >= arr.length - 1)
+                    if (i >= arr.length)
                         break;
                     int cnt = 1;
                     for (int j = i + 1; j < arr.length; j++) {
