@@ -32,11 +32,11 @@ public class Main {
         }
 
         while(!bomb.isEmpty()) {
-            int st = bomb.get(0) - 1;
+            int start = bomb.get(0) - 1;
             bomb.remove(0);
             for(int i=0;i<N;i++) {
-                if(map[i][st] != 0) {
-                    boom(i, st);
+                if(map[i][start] != 0) {
+                    boom(i, start);
                 }
             }
 
@@ -50,6 +50,7 @@ public class Main {
 
     public static void boom(int r, int c) {
 
+        map[r][c] = 0;
         int bombSize = map[r][c] - 1;
         for(int i=0;i<4;i++) {
             for(int j=0;j<=bombSize;j++) {
