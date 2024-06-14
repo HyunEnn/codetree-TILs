@@ -33,8 +33,7 @@ public class Main {
             for (int j = N - 1; j >= 0; j--) {
                 rotateMap(j);
             }
-
-            copy();
+            
             // 회전한 후에, 0이 있는 자리에 값을 떨어뜨려야 함
             for(int j=0;j<N;j++) {
                 moveZero(j);
@@ -52,8 +51,8 @@ public class Main {
         int tmpSize = 0;
         // 똑같이 맨 밑 행부터 값을 저장한다.
         for(int i=N-1;i>=0;i--) {
-            if(copyMap[i][c] != 0)
-                tmp[tmpSize++] = copyMap[i][c];
+            if(map[i][c] != 0)
+                tmp[tmpSize++] = map[i][c];
         }
 
         tmpSize = 0;
