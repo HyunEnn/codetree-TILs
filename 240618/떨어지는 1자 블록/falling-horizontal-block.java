@@ -21,6 +21,23 @@ public class Main {
             }
         }
 
+        // 만약 격자가 1크기로 주어지면, 주어지는 블럭과 비교하고 들어갈 수 있는 지 체크
+        if(N == 1) {
+            boolean flag = false;
+            for(int i=K;i<K+M;i++) {
+                if(map[0][i] != 0) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if(!flag) {
+                for(int i=K;i<K+M;i++) {
+                    map[0][i] = 1;
+                }
+            }
+        }
+
         for (int i = 1; i < N; i++) {
             // 검사 시에 불가능이 판단되면, i - 1 자리에 블록을 위치시킨다.
             if(!checkBlock(i)) {
@@ -28,6 +45,9 @@ public class Main {
                 break;
             }
         }
+
+        // 탐색을 다 돌았는 데에도, move 함수가 출력이 안되면 여기서 출력
+        move(N-1);
 
         printMap();
     }
