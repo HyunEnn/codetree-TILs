@@ -5,6 +5,7 @@ public class Main {
     static int N, M, K;
     static int[][] map;
     static StringTokenizer st;
+    static boolean checkMove;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,6 +14,7 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken()) - 1;
         map = new int[N][N];
+        checkMove = false;
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -42,12 +44,14 @@ public class Main {
             // 검사 시에 불가능이 판단되면, i - 1 자리에 블록을 위치시킨다.
             if(!checkBlock(i)) {
                 move(i-1);
+                checkMove = true;
                 break;
             }
         }
 
         // 탐색을 다 돌았는 데에도, move 함수가 출력이 안되면 여기서 출력
-        move(N-1);
+        if(!checkMove)
+            move(N-1);
 
         printMap();
     }
