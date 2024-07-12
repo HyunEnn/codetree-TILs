@@ -32,7 +32,8 @@ public class Main {
 
         for (int i = 0; i < 3; i++) {
             answer.add(ch[i]);
-            recursive(idx + 1);
+            if(isPossible())
+                recursive(idx + 1);
             answer.remove(answer.size() - 1);
         }
     }
