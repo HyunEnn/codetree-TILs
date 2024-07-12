@@ -24,7 +24,7 @@ public class Main {
 
     public static void recursive(int idx, int cnt) {
 
-        if(idx == N-1 ) {
+        if(idx >= N-1 ) {
             ans = Math.min(ans, cnt);
             return;
         }
