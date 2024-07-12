@@ -40,18 +40,19 @@ public class Main {
     // 홀짝일때를 구분해서 해야한다?
     public static boolean isPossible() {
 
-        int idx = 0;
-        while(true) {
+        for(int i=0;i<answer.size();i++) {
+            int idx = 0;
+            while(true) {
+                int start = i, end = start + idx;
+                int start2 = end + 1, end2 = start2 + idx;
 
-            int start = 0, end = start + idx;
-            int start2 = end + 1, end2 = start2 + idx;
+                if(end2 >= answer.size())
+                    break;
 
-            if(end2 >= answer.size())
-                break;
-
-            if(checkVal(start, end, start2, end2))
-                return false;
-            idx++;
+                if(checkVal(start, end, start2, end2))
+                    return false;
+                idx++;
+            }
         }
         return true;
     }
