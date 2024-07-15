@@ -42,7 +42,7 @@ public class Main {
 
     public static int solve() {
 
-        int result = 0;
+        int result = answer.get(0);
         for(int i=1;i<answer.size();i++) {
             result = result ^ answer.get(i);
         }
