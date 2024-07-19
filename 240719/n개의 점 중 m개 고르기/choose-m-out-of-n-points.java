@@ -56,7 +56,7 @@ public class Main {
             Point p = sel.get(i);
             for(int j=i+1;j<sel.size();j++) {
                 Point diffP = sel.get(j);
-                int diffSum = (int)(Math.abs(p.r - diffP.r) + Math.abs(p.c - diffP.c));
+                int diffSum = calculate(i, j);
                 if(diffSum > sum) {
                     sum = diffSum;
                     currP = i;
