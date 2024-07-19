@@ -39,9 +39,13 @@ public class Main {
         Point a = sel.get(first);
         Point b = sel.get(last);
 
-        return (int)Math.pow(
-                Math.sqrt(
-                        (int)(Math.pow((a.r - b.r), 2) + Math.pow((a.c - b.c), 2))), 2);
+        int resA = (int)(Math.pow((a.r - b.r), 2) + Math.pow((a.c - b.c), 2));
+
+//        System.out.println("1차 제곱 더하기 : " + resA);
+//        System.out.println("2차 제곱근 구하기 : " + Math.sqrt(resA));
+//        System.out.println("3차 최종 dist 구하기 : " + Math.pow(Math.sqrt(resA), 2));
+
+        return (int)(Math.pow((a.r - b.r), 2) + Math.pow((a.c - b.c), 2));
     }
 
     public static int diff() {
