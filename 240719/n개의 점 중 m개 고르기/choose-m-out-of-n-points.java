@@ -50,20 +50,22 @@ public class Main {
 
     public static int diff() {
 
-        int sum = Integer.MAX_VALUE;
+        int sum = Integer.MIN_VALUE;
         int currP = 0, lastP = 0;
         for(int i=0;i<sel.size()-1;i++) {
             Point p = sel.get(i);
             for(int j=i+1;j<sel.size();j++) {
-                Point diffP = sel.get(i);
+                Point diffP = sel.get(j);
                 int diffSum = (int)(Math.abs(p.r - diffP.r) + Math.abs(p.c - diffP.c));
-                if(diffSum < sum) {
+                if(diffSum > sum) {
                     sum = diffSum;
                     currP = i;
                     lastP = j;
                 }
             }
         }
+
+//        System.out.println("선택된 값들 : " + currP + " " + lastP);
 
         return calculate(currP, lastP);
     }
