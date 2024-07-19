@@ -16,7 +16,7 @@ public class Main {
     static int N;
     static int ans = Integer.MAX_VALUE;
     static int[] arr;
-    static List<Integer> selectedA = new ArrayList<>();
+    static List<Pair> selectedA = new ArrayList<>();
     static StringTokenizer st;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,8 +31,7 @@ public class Main {
         // 나눈 그룹 간의 차가 최소가 되는 것을 구한다.
         // 예시로, [1,3,4]를 선택했다면 [2,5,6]을 고르게 해야함.
         // 이 상태에서 원소간의 차를 계산하자.
-        for(int i=0;i<N*2;i++)
-            recursive(0, i);
+        recursive(0, 0);
         System.out.println(ans);
     }
 
@@ -48,7 +47,7 @@ public class Main {
         }
 
         // 선택했다면
-        selectedA.add(arr[curr]);
+        selectedA.add(new Pair(curr, arr[curr]));
         recursive(idx + 1, curr + 1);
         selectedA.remove(selectedA.size() - 1);
 
@@ -60,14 +59,20 @@ public class Main {
 
         // 1,3,5를 선택했다면 2,4,6을 골라야 하는데 어떻게?
         List<Integer> unselectedB = new ArrayList<>();
+        boolean[] selected = new boolean[N*2];
+
+        for(Pair p : selectedA) {
+            selected[p.idx] = true;
+        }
+
         for(int i=0;i<N*2;i++) {
-            if(!selectedA.contains(arr[i]))
+            if(!selected[i])
                 unselectedB.add(arr[i]);
         }
 
         int sumA = 0, sumB = 0;
         for(int i=0;i<N;i++) {
-            sumA += selectedA.get(i);
+            sumA += selectedA.get(i).val;
             sumB += unselectedB.get(i);
         }
 
