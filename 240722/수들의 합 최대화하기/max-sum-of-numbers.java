@@ -50,15 +50,9 @@ public class Main {
         for(int i=0;i<N;i++) {
             if(!vr[i]) {
                 vr[i] = true;
-                for(int j=0;j<N;j++) {
-                    if(!vc[j]) {
-                        vc[j] = true;
-                        list.add(map[i][j]);
-                        choose(idx + 1);
-                        list.remove(list.size() - 1);
-                        vc[j] = false;
-                    }
-                }
+                list.add(map[i][idx]);
+                choose(idx + 1);
+                list.remove(list.size() - 1);
                 vr[i] = false;
             }
         }
