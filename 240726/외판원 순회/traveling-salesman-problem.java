@@ -42,6 +42,8 @@ public class Main {
             }
             int lastPos = list.get(list.size() - 1);
             int lastCurr = map[lastPos][0];
+            if(lastCurr == 0)
+                return;
             sum += lastCurr;
 
             ans = Math.min(ans, sum);
