@@ -28,7 +28,7 @@ public class Main {
         }
         K = 1;
 
-        list.add(0);
+        list.add(-1);
         while(K <= max) {
             copyMap();
             v = new boolean[N][M];
