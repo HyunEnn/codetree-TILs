@@ -27,7 +27,8 @@ public class Main {
         for(int i=0;i<N;i++) {
             for(int j=0;j<N;j++) {
                 if(map[i][j] == 1 && !v[i][j]) {
-                    people = 0;
+                    people = 1;
+                    v[i][j] = true;
                     findVillage(i, j, 0);
                     list.add(people);
                 }
