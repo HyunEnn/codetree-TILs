@@ -14,7 +14,7 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for(int i=0;i<N;i++) {
             arr[i] = Integer.parseInt(st.nextToken());
-            dp[i] = -1;
+            dp[i] = 0;
         }
         dp[0] = 1;
 
