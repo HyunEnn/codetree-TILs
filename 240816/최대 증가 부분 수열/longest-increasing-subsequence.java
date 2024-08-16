@@ -16,18 +16,22 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
             dp[i] = -1;
         }
-        dp[0] = 0;
+        dp[0] = 1;
 
         for(int i=1;i<N;i++) {
             for(int j=0;j<i;j++) {
                 if(dp[j] == -1)
                     continue;
-                if(j + arr[j] >= i) {
+                if(arr[j] < arr[i]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
         }
 
-        System.out.println(dp[N-1]);
+        int ans = 0;
+        for(int i=0;i<N;i++) {
+            ans = Math.max(ans, dp[i]);
+        }
+        System.out.println(ans);
     }
 }
