@@ -16,9 +16,8 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for(int i=1;i<=N;i++) {
             arr[i] = Integer.parseInt(st.nextToken());
+            dp[i] = 1;
         }
-        dp[0] = 0;
-        dp[1] = 1;
         for(int i=2;i<=N;i++) {
             for(int j=0;j<i;j++) {
                 if(arr[i] < arr[j]) {
