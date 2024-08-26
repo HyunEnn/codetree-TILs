@@ -20,12 +20,15 @@ public class Main {
     static int[] arr;
     static int size;
     static List<Pair> list = new ArrayList<>();
+    static int[] dp;
     static int N;
     static StringTokenizer st;
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         N = Integer.parseInt(br.readLine());
         size = 0;
+        dp = new int[1001];
+        dp[1] = 1;
         int first = 0;
 
         for(int i = 0; i < N; i++){
@@ -37,30 +40,40 @@ public class Main {
         } // 값들 저장
         // 정렬
         Collections.sort(list);
-        // recursive(first);
-        // 1 2, 1 4, 3 4
-        int lastEnd = -1;
-        for(Pair p : list) {
-            int s = p.start;
-            int e = p.end;
-            if(s > lastEnd) {
-                size++;
-                lastEnd = e;
+        func();
+        int max = 0;
+        for(int i=0;i<N;i++) {
+            max = Math.max(max, dp[i]);
+        }
+
+        System.out.println(max);
+    }
+
+    public static void init(){
+        for(int i=0;i<N;i++) {
+            dp[i] = -1;
+        }
+        dp[0] = 1;
+    }
+
+    public static void func() {
+
+        init();
+        for(int i=1;i<N;i++) {
+            for(int j=0;j<i;j++) {
+                if(dp[j] == -1)
+                    continue;
+                if(inRange(list.get(j).start, list.get(j).end, list.get(i).start, list.get(i).end)){
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                } else
+                    dp[i] = Math.max(dp[i], 1);
             }
         }
-        System.out.println(size);
     }
-    // 예시로, 1이 first 로 지정되서 시작하면 (1,2) (1,4) -> (1,2)를 통해 recursive(2)로 드가면
-    // 2의 list 가 있다면 size를 증가시키고 값을 뽑는다. 아니면 그대로 종료,
 
-//    public static void recursive(int idx) {
-//        System.out.println(idx);
-//        if() // 값이 없으면 더해줄 값이 없는거니까, 있으면 1을 더해주고 다음값을 탐색?
-//            size += 1;
-//
-//        // +1 이 아니라, 그냥 다음 값이 있으면 가야한다?
-//        // 필요없고, 가장 짧은 걸 고른다는 기준하에면 많은 선을 만들수있다?
-//    }
+    public static boolean inRange(int start, int end, int start2, int end2) {
+        return start2 > end || start > end2;
+    }
 }
 
 //
