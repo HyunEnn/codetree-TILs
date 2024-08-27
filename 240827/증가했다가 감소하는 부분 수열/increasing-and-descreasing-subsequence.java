@@ -24,8 +24,6 @@ public class Main {
         // 증가 부분
         for(int i=1;i<N;i++) {
             for(int j=0;j<i;j++) {
-                if(inc_dp[j] == -1)
-                    continue;
                 if(arr[j] < arr[i]) {
                     inc_dp[i] = Math.max(inc_dp[i], inc_dp[j] + 1);
                 }
@@ -34,15 +32,14 @@ public class Main {
 
         // 감소 부분 수열 N-1이 끝점이므로, N-2 시작
         for(int i=N-2;i>=0;i--) {
-            for(int j=N-1;j>i;j--) {
-                if(dec_dp[j] == -1)
-                    continue;
+            for(int j=i+1;j<N;j++) {
                 if(arr[j] < arr[i]) {
                     dec_dp[i] = Math.max(dec_dp[i], dec_dp[j] + 1);
                 }
             }
         }
-        
+
+
         // 이제 각각 부분 수열의 최대값을 찾는다
         int len = 0;
         for(int i=0;i<N;i++) {
@@ -54,10 +51,8 @@ public class Main {
 
     public static void init() {
         for(int i = 0; i < N; i++) {
-            inc_dp[i] = -1;
-            dec_dp[i] = -1;
+            inc_dp[i] = 1;
+            dec_dp[i] = 1;
         }
-        inc_dp[0] = 1;
-        dec_dp[N-1] = 1;
     }
 }
