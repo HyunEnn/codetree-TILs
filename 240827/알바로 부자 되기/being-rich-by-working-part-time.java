@@ -39,7 +39,7 @@ public class Main {
         for(int i=1;i<N;i++) {
             for(int j=0;j<i;j++) {
                 if(inRange(list.get(j).st, list.get(j).end, list.get(i).st, list.get(i).end)) {
-                    dp[i] = Math.max(dp[i], dp[j] + list.get(j).price);
+                    dp[i] = Math.max(dp[i], dp[j] + list.get(i).price);
                 }
             }
         }
