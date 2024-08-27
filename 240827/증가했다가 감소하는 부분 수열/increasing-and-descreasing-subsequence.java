@@ -44,15 +44,11 @@ public class Main {
         }
         
         // 이제 각각 부분 수열의 최대값을 찾는다
-        int inc_max = 0;
-        int dec_max = 0;
+        int len = 0;
         for(int i=0;i<N;i++) {
-            inc_max = Math.max(inc_max, inc_dp[i]);
-            dec_max = Math.max(dec_max, dec_dp[i]);
+            len = Math.max(len, inc_dp[i] + dec_dp[i] - 1);
         }
 
-
-        int len = inc_max + dec_max - 1;
         System.out.println(len);
     }
 
