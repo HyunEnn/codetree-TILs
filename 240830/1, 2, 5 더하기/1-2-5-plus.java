@@ -14,12 +14,12 @@ public class Main {
         for(int i = 1; i <= N; i++) {
             for(int j = 0; j < arr.length; j++) {
                 if(i >= arr[j]) {
-                    dp[i] += dp[i - arr[j]];
+                    dp[i] =  (dp[i] + dp[i - arr[j]]) % 10007;
                 }
             }
         }
 
-        System.out.println(dp[N] % 10007);
+        System.out.println(dp[N]);
     }
 
     static void init() {
