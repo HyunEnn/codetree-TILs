@@ -29,7 +29,10 @@ public class Main {
             }
         }
 
-        System.out.println(dp[M]);
+        if(dp[M] == INT_MIN)
+            System.out.println(-1);
+        else
+            System.out.println(dp[M]);
     }
 
     static void init() {
