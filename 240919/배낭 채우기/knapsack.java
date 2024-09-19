@@ -30,7 +30,7 @@ public class Main {
                 if(itemWeight > j)
                     dp[i][j] = dp[i-1][j];
                 else {
-                    dp[i][j] = Math.max(dp[i][j], dp[i-1][j-itemWeight]+itemValue);
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-itemWeight]+itemValue);
                 }
             }
         }
