@@ -31,6 +31,8 @@ public class Main {
                 // 가방의 무게가 총 무게보다 크면
                 if(j >= itemWeight)
                     dp[i][j] = Math.max(dp[i-1][j], dp[i][j-itemWeight] + itemValue);
+                else
+                    dp[i][j] = dp[i-1][j];
             }
         }
 
