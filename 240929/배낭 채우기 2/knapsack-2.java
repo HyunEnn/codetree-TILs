@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class Main {
     static int N, M;
     static StringTokenizer st;
@@ -12,6 +15,11 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         weights = new int[N+1];
         values = new int[N+1];
+        for(int i=0;i<N;i++) {
+            st = new StringTokenizer(br.readLine());
+            weights[i] = Integer.parseInt(st.nextToken());
+            values[i] = Integer.parseInt(st.nextToken());
+        }
         dp = new int[N+1][M+1];
 
         initDP();
