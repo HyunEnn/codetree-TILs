@@ -21,6 +21,7 @@ public class Main {
             values[i] = Integer.parseInt(st.nextToken());
         }
         dp = new int[N+1][M+1];
+        int max = 0;
 
         initDP();
         // 선택하는 경우
@@ -36,10 +37,18 @@ public class Main {
                     dp[i][j] = dp[i-1][j];
             }
         }
+
+        for(int i=1;i<=N;i++) {
+            for(int j=1;j<=M;j++) {
+                max = Math.max(max, dp[i][j]);
+            }
+        }
+
+        System.out.println(max);
     }
 
-    static void initDP() {
-        for(i=0;i<N;i++) {
+    public static void initDP() {
+        for(int i=0;i<=N;i++) {
             for(int j=0;j<=M;j++) {
                 dp[i][j] = 0;
             }
