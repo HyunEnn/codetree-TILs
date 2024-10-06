@@ -32,6 +32,6 @@ public class Main {
     }
 
     static void initDP() {
-        dp[1] = 2 * arr[1];
+        dp[1] = arr[1];
     }
 }
