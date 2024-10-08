@@ -34,10 +34,9 @@ public class Main {
             }
         }
 
-        for(int i=1;i<=N;i++) {
-            for(int j=1;j<=choose;j++) {
-                max = Math.max(max, dp[i][j]);
-            }
+        
+        for(int j=1;j<=choose;j++) {
+            max = Math.max(max, dp[N][j]);
         }
 
         System.out.println(max);
