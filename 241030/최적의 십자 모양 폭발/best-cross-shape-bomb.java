@@ -28,6 +28,7 @@ public class Main {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 bomb(i, j);
+                // System.out.println("findMate : " + findMate() + " => " + i + " " + j);
                 max = Math.max(max, findMate());
             }
         }
@@ -55,7 +56,7 @@ public class Main {
             for(int r=N-1;r>0;r--) {
                 // 터진 칸이면 위부터 한 칸 씩 땡김
                 if(cpMap[r][c] == 0) {
-                    for(int a=r;a>0;a--) {
+                    for(int a=N-1;a>0;a--) {
                         cpMap[a][c] = cpMap[a-1][c];
                     } cpMap[0][c] = 0;
                 }
@@ -69,7 +70,7 @@ public class Main {
         for(int i=0;i<N;i++) {
             for(int j=0;j<N;j++) {
                 v[i][j] = true;
-                for(int k=0;k<N;k++) {
+                for(int k=0;k<4;k++) {
                     int nr = i + dr[k];
                     int nc = j + dc[k];
                     if (inRange(nr, nc)) {
