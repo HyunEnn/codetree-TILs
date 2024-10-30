@@ -51,17 +51,27 @@ public class Main {
                 }
             }
         }
-        // 터진 걸 기준으로 빈 값들을 채운다.
-        for(int c=0;c<N;c++) {
-            for(int r=N-1;r>0;r--) {
-                // 터진 칸이면 위부터 한 칸 씩 땡김
-                if(cpMap[r][c] == 0) {
-                    for(int a=N-1;a>0;a--) {
-                        cpMap[a][c] = cpMap[a-1][c];
-                    } cpMap[0][c] = 0;
+        // 빈 칸을 위의 값으로 채우는 방식으로 변경
+        for (int c = 0; c < N; c++) {
+            int r = N - 1;
+            while (r >= 0) {
+                // 현재 위치가 빈 칸인 경우
+                if (cpMap[r][c] == 0) {
+                    // 위쪽에서 가장 가까운 숫자를 찾기
+                    int a = r - 1;
+                    while (a >= 0 && cpMap[a][c] == 0) {
+                        a--;
+                    }
+                    // 위쪽에서 숫자를 찾았다면 해당 숫자를 현재 위치로 이동
+                    if (a >= 0) {
+                        cpMap[r][c] = cpMap[a][c];
+                        cpMap[a][c] = 0;
+                    }
                 }
+                r--; // 다음 행으로 이동
             }
         }
+        // printMap();
     }
 
     public static int findMate() {
