@@ -45,8 +45,7 @@ public class Main {
 
     public static void initDP() {
         for(int i=0;i<N;i++) {
-            dp[i] = Integer.MIN_VALUE;
+            dp[i] = 1;
         }
-        dp[0] = 1;
     }
 }
