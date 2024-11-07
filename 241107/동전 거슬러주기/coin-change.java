@@ -28,7 +28,10 @@ public class Main {
             }
         }
 
-        System.out.println(dp[M]);
+        if(dp[M] == Integer.MAX_VALUE) {
+            System.out.println(-1);
+        } else
+            System.out.println(dp[M]);
     }
 
     public static void initDP() {
